@@ -1,0 +1,6 @@
+<% if Rails.env.development? || Rails.env.staging? %>
+  <%= form_tag('/easy_login#try_to_login') do %>
+    <div><%= select_tag 'user_id', options_from_collection_for_select(User.active.try(:sort), :id, :name ) %><div>
+    <div><%= submit_tag 'Login' %></div>
+  <% end %>
+<% end %>

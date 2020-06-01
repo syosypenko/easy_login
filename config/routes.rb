@@ -1,2 +1,2 @@
 # Plugin's routes
-# See: http://guides.rubyonrails.org/routing.html
+post 'easy_login', :to => 'easy_login#try_to_login'
