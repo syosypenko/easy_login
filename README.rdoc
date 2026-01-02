@@ -1,3 +1,90 @@
-= easy_login
+= Easy Login
 
-Description goes here
+A Redmine plugin that provides a convenient way to quickly login as different users during development and staging environments for testing purposes.
+
+== Features
+
+* Quick user switching in development and staging environments
+* User dropdown selector integrated into the Redmine interface
+* Safe - only works in development and staging environments, automatically disabled in production
+* Simple one-click login without requiring passwords
+* Shows only active users in the dropdown
+
+== Installation
+
+1. Clone this repository into your Redmine plugins directory:
+
+   cd {REDMINE_ROOT}/plugins
+   git clone https://github.com/syosypenko/easy_login.git
+
+2. Restart your Redmine instance
+
+No database migration is required.
+
+== Usage
+
+When running Redmine in development or staging mode, a user selection dropdown will appear at the bottom of each page. Simply:
+
+1. Select a user from the dropdown
+2. Click the "Login" button
+3. You will be instantly logged in as that user
+
+This is useful for:
+* Testing different user permissions
+* Debugging user-specific issues
+* QA testing across different user roles
+* Development workflow optimization
+
+== Security
+
+This plugin is designed with security in mind:
+
+* Only works in development and staging environments
+* Automatically disabled in production
+* Shows error messages for invalid user IDs
+* Only allows login for active users
+* Requires explicit environment checking before authentication
+
+== Requirements
+
+* Redmine 3.0 or higher
+* Ruby 2.0 or higher
+
+== Testing
+
+To run the tests:
+
+   cd {REDMINE_ROOT}
+   bundle exec rake redmine:plugins:test NAME=easy_login
+
+The plugin includes comprehensive tests for:
+* User authentication flow
+* Environment-specific behavior
+* Error handling
+* Invalid user scenarios
+
+== Configuration
+
+No configuration needed - the plugin works out of the box.
+
+== License
+
+This plugin is open source and available under the MIT License.
+
+== Author
+
+* Serhiy Yosypenko
+* GitHub: https://github.com/syosypenko/
+
+== Contributing
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+== Support
+
+For issues, questions, or contributions, please visit:
+https://github.com/syosypenko/easy_login
