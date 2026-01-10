@@ -1,6 +1,11 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.7/chosen.min.css">
+
+<%= javascript_include_tag "chosen.jquery.min.js", plugin: "easy_login" %>
+
 <% if Rails.env.development? || Rails.env.staging? %>
   <%= form_tag('/easy_login#try_to_login') do %>
-    <div><%= select_tag 'user_id', options_from_collection_for_select(User.active.try(:sort), :id, :name ) %><div>
-    <div><%= submit_tag 'Login' %></div>
+    <%= select_tag 'user_id', options_from_collection_for_select(User.active.try(:sort), :id, :name),
+                  { prompt: 'Select Person' }%>
   <% end %>
 <% end %>
